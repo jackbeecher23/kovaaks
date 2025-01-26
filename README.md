@@ -14,6 +14,9 @@ Here's a video demo of me playing:
 [video demo](kovaaksdemo.mp4)
 
 ## Setup
+To play the game,
+1. Clone the git repo
+2. Locate and run the kovaaks.app file!
 
 ## Journey
 ### Inspiration
