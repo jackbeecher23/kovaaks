@@ -9,13 +9,14 @@ public class CookieWall : MonoBehaviour
   public int width;
   public int height;
 
-  [Header("Cookie Settings")]
+  [Header("Cookie (target) Settings")]
   public Vector3 scale;
   public GameObject Cookie; 
 
-
-
-  // Start is called once before the first execution of Update after the MonoBehaviour is created
+  /**************** Start ****************/
+  /*
+   * add targets to wall 
+   */
   void Start()
   {
     scale = new Vector3(1, 1, 1);
@@ -23,7 +24,10 @@ public class CookieWall : MonoBehaviour
     AddCookies();
   }
 
-  // Update is called once per frame
+  /**************** Update  ****************/
+  /*
+   * add targets to wall 
+   */
   void Update()
   {
     if (numCookies < maxCookies){
@@ -32,29 +36,29 @@ public class CookieWall : MonoBehaviour
 
   }
 
+  /**************** AddCookies  ****************/
+  /*
+   * place targets in random location on wall 
+   */
   void AddCookies()
   {
     int randX, randY;
     int widthRange = width/2;
     int radius = 1;
+    
+    //while not enough targets 
     while (numCookies < maxCookies){
-      randX = -1;
-      randY = -1;
-      while (!validCookieLocation(randX, randY)){
-        randX = Random.Range(-(widthRange - radius), (widthRange - radius));
-        randY = Random.Range(radius, height - radius);
-      }
-      //GameObject cookie = Instantiate(Cookie, (new Vector3(randX, .5f, randZ)), transform.rotation, transform);
+
+      //get a random location
+      randX = Random.Range(-(widthRange - radius), (widthRange - radius));
+      randY = Random.Range(radius, height - radius);
+
+      //create the object at the location
       GameObject cookie = Instantiate(Cookie, new Vector3(randX, randY, transform.position.z + .5f), Quaternion.identity);
       cookie.transform.localScale = scale; 
+
+      //increment target counter
       numCookies++;
     }
-  }
-
-  bool validCookieLocation(int x, int y){
-    if (x == -1){
-      return false;
-    }
-    return true;
   }
 }
