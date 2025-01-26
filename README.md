@@ -2,7 +2,7 @@
 Created Kovaaks in Unity for Dali application
 
 ## Description
-Kovaaks is an aim training game that I used to love playing and competiting on with my friends.
+Kovaaks is an aim training game that I used to love playing and competing on with my friends.
 For this project, I decided to recreate a simple version of the game.
 
 ## Application Link
